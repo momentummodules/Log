@@ -1,4 +1,4 @@
-package hugo.weaving;
+package momentum.lib.log.Annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

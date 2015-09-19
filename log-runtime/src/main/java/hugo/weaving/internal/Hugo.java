@@ -18,7 +18,7 @@ import momentum.lib.log.Log;
 @Aspect
 public class Hugo
 {
-    @Pointcut("within(@hugo.weaving.DebugLog *)")
+    @Pointcut("within(@DebugLog *)")
     public void withinAnnotatedClass()
     {
     }
@@ -33,12 +33,12 @@ public class Hugo
     {
     }
 
-    @Pointcut("execution(@hugo.weaving.DebugLog * *(..)) || methodInsideAnnotatedType()")
+    @Pointcut("execution(@DebugLog * *(..)) || methodInsideAnnotatedType()")
     public void method()
     {
     }
 
-    @Pointcut("execution(@hugo.weaving.DebugLog *.new(..)) || constructorInsideAnnotatedType()")
+    @Pointcut("execution(@DebugLog *.new(..)) || constructorInsideAnnotatedType()")
     public void constructor()
     {
     }
