@@ -14,7 +14,6 @@ import java.util.regex.Pattern;
 
 import momentum.lib.log.Handler.Handler;
 import momentum.lib.log.Handler.PatternHandler;
-import momentum.lib.log.Handler.SimplePatternHandler;
 import momentum.lib.log.LoggerImpl.SimpleLogger;
 
 /**
@@ -42,6 +41,7 @@ import momentum.lib.log.LoggerImpl.SimpleLogger;
  * logger.com.example.server=DEBUG:MyApplication-server
  *
  */
+@SuppressWarnings("unused")
 public final class LoggerManager
 {
     /**
@@ -192,8 +192,7 @@ public final class LoggerManager
             }
             try
             {
-                // TODO change it here if you need a different one
-                return new SimplePatternHandler(Logger.Level.valueOf(levelString), tag, message);
+                return new PatternHandler(Logger.Level.valueOf(levelString), tag, message);
             }
             catch(IllegalArgumentException e)
             {

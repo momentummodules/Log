@@ -96,6 +96,10 @@ import momentum.lib.log.Utils;
  * Prints a name of the thread which causes the logging event.
  * <p>
  * <p>
+ * %class{count.length}
+ * Prints the classname of the object
+ * <p>
+ * <p>
  * %(...)
  * Special mark used to grouping parts of message. Format modifiers
  * (if specified) are applied on whole group. Examples:
@@ -203,7 +207,15 @@ public class PatternHandler implements Handler
             if((this.compiledTagPattern != null && this.compiledTagPattern.isCallerNeeded())
                        || (this.compiledMessagePattern != null && this.compiledMessagePattern.isCallerNeeded()))
             {
-                caller = Utils.getCaller(true);
+                if(callerObject != null)
+                {
+                    String cal = Utils.getClassName(callerObject);
+                    caller = new StackTraceElement(cal, "<no-method>", "<no-file>", -1);
+                }
+                else
+                {
+                    caller = Utils.getCaller(true);
+                }
             }
 
             String tag = this.compiledTagPattern == null ? "" : this.compiledTagPattern.apply(caller, loggerName, level);
@@ -231,7 +243,6 @@ public class PatternHandler implements Handler
             {
                 throw new IllegalArgumentException("message format is not set but arguments are presented");
             }
-
             this.print(loggerName, level, callerObject, throwable, messageFormat == null ? null : String.format(messageFormat, args));
         }
     }
