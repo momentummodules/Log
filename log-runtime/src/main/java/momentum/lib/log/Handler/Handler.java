@@ -1,11 +1,11 @@
-package momentum.log;
+package momentum.lib.log.Handler;
 
 import java.util.Formatter;
 
-import momentum.log.Logger;
+import momentum.lib.log.Logger;
 
 /**
- * The log message handler.
+ * The log message handler interface
  */
 public interface Handler {
 
@@ -19,7 +19,7 @@ public interface Handler {
 
     /**
      * Prints a log message.
-     * <p/>
+     *
      * This method should automatically check using {@link #isEnabled(Logger.Level)} method
      * if the message is allowed to be logged or not.
      *
@@ -29,15 +29,18 @@ public interface Handler {
      * @param message    a log message. Can be {@code null}.
      * @throws IllegalArgumentException if no format string is specified but arguments are presented.
      */
-    public void print(String loggerName, Logger.Level level, Object object,
-                      Throwable throwable, String message) throws IllegalArgumentException;
+    public void print(String loggerName,
+                      Logger.Level level,
+                      Object object,
+                      Throwable throwable,
+                      String message) throws IllegalArgumentException;
 
     /**
      * Prints a log message.
-     * <p/>
+     *
      * This method should automatically check using {@link #isEnabled(Logger.Level)} method
      * if the message is allowed to be logged or not.
-     * <p/>
+     *
      * The format string of the log message should be formatted
      * according to rules of the standard format string described
      * in JavaDoc of {@link Formatter}.
@@ -52,6 +55,10 @@ public interface Handler {
      *                      which is considered as an empty array.
      * @throws IllegalArgumentException if no format string is specified but arguments are presented.
      */
-    public void print(String loggerName, Logger.Level level, Object object,
-                      Throwable throwable, String messageFormat, Object... args) throws IllegalArgumentException;
+    public void print(String loggerName,
+                      Logger.Level level,
+                      Object object,
+                      Throwable throwable,
+                      String messageFormat,
+                      Object... args) throws IllegalArgumentException;
 }

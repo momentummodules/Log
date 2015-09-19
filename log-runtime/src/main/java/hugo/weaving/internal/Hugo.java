@@ -13,7 +13,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 
 import java.util.concurrent.TimeUnit;
 
-import momentum.log.Log;
+import momentum.lib.log.Log;
 
 @Aspect
 public class Hugo
