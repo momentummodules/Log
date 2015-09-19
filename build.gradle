@@ -28,20 +28,3 @@ ext {
   buildToolsVersion = '23.0.1'
 }
 
-task exampleClean(type: Exec) {
-  executable = 'gradlew'
-  workingDir = project.file('log-example')
-  args = [ 'clean' ]
-}
-
-task exampleAssemble(type: Exec) {
-  executable = 'gradlew'
-  workingDir = project.file('log-example')
-  args = [ 'assemble' ]
-}
-
-task exampleInstal(type: Exec) {
-  executable = 'gradlew'
-  workingDir = project.file('log-example')
-  args = [ 'installDebug' ]
-}

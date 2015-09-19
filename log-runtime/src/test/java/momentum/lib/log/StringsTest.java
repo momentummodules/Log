@@ -1,4 +1,4 @@
-package hugo.weaving.internal;
+package momentum.lib.log;
 
 import java.math.BigInteger;
 import org.junit.Test;

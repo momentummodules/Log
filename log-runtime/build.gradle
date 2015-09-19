@@ -8,8 +8,6 @@ apply plugin: 'com.github.dcendents.android-maven'
 dependencies {
   compile 'org.aspectj:aspectjrt:1.8.6'
   compile project(':log-annotations')
-
-  compile 'org.slf4j:slf4j-api:1.7.12'
   testCompile 'junit:junit:4.12'
 }
 
