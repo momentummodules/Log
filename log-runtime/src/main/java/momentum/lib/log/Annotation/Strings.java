@@ -1,4 +1,4 @@
-package hugo.weaving.internal;
+package momentum.lib.log.Annotation;
 
 import java.util.Arrays;
 import java.util.HashSet;
