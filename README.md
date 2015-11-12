@@ -1,6 +1,10 @@
+# Log
+
 A mix of Hugo and formatting logging.
 
 See example here https://github.com/nomad5modules/Log
+
+## Usage
 
 Use it like this in the build.gradle file:
 
@@ -37,4 +41,21 @@ dependencies {
     ...
     compile 'com.nomad5.log:log-annotations:1.0.1'
     compile 'com.nomad5.log:log-runtime:1.0.1'
-}```
+}
+```
+
+Furthermore place a file called 'log.properties' into the /src/main/resources folder that specifies the format of the logging depending on the caller class. One example is like this
+
+```
+root=VERBOSE:Momentum:[%thread] --- %-20class{-3}
+logger.momentum.example.SomeActivity=VERBOSE:SomeActivity:[%thread] --- %-20class{-3} ||| %logger{-3} ||| %source ||| %caller
+logger.hugo.weaving.internal.Hugo=VERBOSE:Hugggggo:[%thread] --- %-20class{-3}
+```
+
+## Issues
+
+* for now its a problem if your package starts with 'log'
+
+## Todo
+* Better documentation
+* References to Hugo
