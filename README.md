@@ -1,6 +1,6 @@
 # Log
 
-A mix of Hugo and formatting logging.
+A mix of https://github.com/JakeWharton/hugo and and https://github.com/noveogroup/android-logger
 
 See example here https://github.com/nomad5modules/Log
 
