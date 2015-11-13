@@ -1,5 +1,7 @@
 package com.nomad5.log.Annotation;
 
+import android.os.Build;
+import android.os.Trace;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
@@ -87,10 +89,21 @@ public class Hugo
         }*/
 
         com.nomad5.log.Log.v(null, builder.toString());
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2)
+        {
+            final String section = builder.toString().substring(2);
+            Trace.beginSection(section);
+        }
     }
 
     private static void exitMethod(JoinPoint joinPoint, Object result, long lengthMillis)
     {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2)
+        {
+            Trace.endSection();
+        }
+
         Signature signature = joinPoint.getSignature();
 
         Class<?> cls = signature.getDeclaringType();
