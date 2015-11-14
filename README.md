@@ -54,7 +54,7 @@ logger.hugo.weaving.internal.Hugo=VERBOSE:Hugggggo:[%thread] --- %-20class{-3}
 
 ## Issues
 
-* for now its a problem if your package starts with 'log'
+* for now its a problem if your package starts with 'com.nomad5.log'
 
 ## Todo
 * Better documentation
